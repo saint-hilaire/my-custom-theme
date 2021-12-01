@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-	<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<?php wp_head(); ?>
-	</head>
-
-		<body <?php body_class( 'wide-template blue-bg'); ?>>
-
-	<header class="site-header">
-		<p class="site-title">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<?php bloginfo( 'name' ); ?>
-			</a>
-		</p>
-		<p class="site-description"><?php bloginfo( 'description' ); ?></p>
-	</header><!-- .site-header -->
-
+<?php get_header(); ?>
 	<div class="site-content">
 		<?php
 		if ( have_posts() ):
@@ -42,23 +23,10 @@
 					endif;
 			endwhile;
 		else:
-		?>
-			<article class="no-results">
-				<header class="entry-header">
-					<h1 class="page-title"><?php esc_html_e( 'Nothing found', 'my-custom-theme' ); ?></h1>
-				</header>
-
-				<div class="entry-content">
-				<p><?php esc_html_e( 'It looks like nothing was found.', 'my-custom-theme' ); ?></p>
-				</div>
-			</article>
-		<?php
+			get_template_part( 'content-none' );
 		endif;
 		?>
 	</div>
 
 	<?php get_sidebar(); ?>
-
-	<?php wp_footer(); ?>
-	</body>
-</html>
+<?php get_footer(); ?>
