@@ -16,4 +16,7 @@ function my_custom_theme_sidebar(){
 	) );
 }
 add_action( 'widgets_init', 'my_custom_theme_sidebar' );
+
+add_theme_support( 'post-thumbnails' );
+add_image_size( 'my-custom-image-size', 640, 999 );
 ?>
